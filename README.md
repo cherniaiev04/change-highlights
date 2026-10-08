@@ -1,24 +1,20 @@
-# claude-mods
+# change-highlights
 
-Small mods for [Claude Code](https://claude.com/claude-code), written as plugins of function hooks.
-
-| Mod | What it does |
-| --- | --- |
-| [change-highlights](change-highlights) | After a turn that changed code, shows only the changes worth a developer's attention — the ones that do something new or non-obvious — and skips the ones that just reuse an existing pattern. |
+A mod for [Claude Code](https://claude.com/claude-code), written as a plugin of function hooks: after a turn that changed code, it shows only the changes worth a developer's attention — the ones that do something new or non-obvious — and skips the ones that just reuse an existing pattern.
 
 ## Install
 
 At the prompt of a Claude Code session:
 
 ```
-/plugin install change-highlights --marketplace cherniaiev04/claude-mods
+/plugin install change-highlights --marketplace cherniaiev04/change-highlights
 ```
 
 Answer `y` to add the marketplace, then pick a scope (user scope = every session).
 
-The function-hooks plugin API is early access and changes between Claude Code releases. These mods were built and tested on Claude Code 2.1.293.
+The function-hooks plugin API is early access and changes between Claude Code releases. This mod was built and tested on Claude Code 2.1.293.
 
-## change-highlights
+## How it works
 
 When a turn ends with at least 3 changed lines of code (Edit / Write / NotebookEdit; `.md`, `.txt`, `.canvas`, `.base` files are skipped), a reviewer sorts the changes into:
 
@@ -38,16 +34,16 @@ The review runs in the background after the turn and costs one extra model call 
 
 ## Develop
 
-Run a mod from its folder instead of installing it, so edits reload while the session runs:
+Run the mod from its folder instead of installing it, so edits reload while the session runs:
 
 ```
 claude --plugin-dir ./change-highlights
 ```
 
-or, for sessions the desktop app starts, list the folders in `~/.claude/settings.json`:
+or, for sessions the desktop app starts, list the folder in `~/.claude/settings.json`:
 
 ```json
-{ "env": { "CLAUDE_CODE_PLUGIN_DIRS": "~/path/claude-mods/change-highlights" } }
+{ "env": { "CLAUDE_CODE_PLUGIN_DIRS": "~/path/change-highlights/change-highlights" } }
 ```
 
 Check and test:
