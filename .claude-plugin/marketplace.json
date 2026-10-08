@@ -1,0 +1,16 @@
+{
+  "name": "claude-mods",
+  "owner": {
+    "name": "Oleksandr Cherniaiev"
+  },
+  "metadata": {
+    "description": "Claude Code mods: change-highlights shows only the non-standard code changes of a turn"
+  },
+  "plugins": [
+    {
+      "name": "change-highlights",
+      "source": "./change-highlights",
+      "description": "After a turn that changed code, shows only the non-standard changes: path, the key lines, and why"
+    }
+  ]
+}
